@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@300&display=swap");
 /*
   1. Use a more-intuitive box-sizing model.
 */
@@ -68,7 +69,66 @@ h6 {
   isolation: isolate;
 }
 
-main {
+:root {
+  --tile-height: 5vw;
+  --tile-font-size: 3vw;
+}
+
+html {
+  overflow: scroll;
+}
+.color {
+  color: yellowgreen;
+}
+.canvas {
+  width: 100vw;
+  width: 100svw;
+  height: 100vh;
+  height: 100svh;
+  background-color: black;
+  position: relative;
+  font-family: "Lobster", cursive;
+}
+.intro {
+  position: absolute;
+  color: white;
+  top: 50%;
+  left: 50%;
+  font-size: clamp(3rem, 5vw, 7vw);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  user-select: none;
+}
+.line1 {
+  transform: translateX(-15vw);
+}
+.line2 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.i-title {
+  height: var(--tile-height);
+  overflow: hidden;
+}
+
+.i-title-wrapper {
+  height: 100%;
+  animation: move 8s ease-in-out infinite alternate;
+}
+@keyframes move {
+  50% {
+    transform: translateY(calc(-1 * var(--tile-height)));
+  }
+
+  100% {
+    transform: translateY(calc(-2 * var(--tile-height)));
+  }
+}
+.i-title-item {
+  font-size: var(--tile-font-size);
+  font-weight: bold;
+}
+.about_me {
   width: 100vw;
   width: 100svw;
   height: 100vh;
@@ -76,14 +136,11 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.left_side {
-  border: 5px solid hotpink;
-  background-color: aqua;
-}
 
 .right_side {
   position: relative;
-  border: 5px solid hotpink;
+  display: flex;
+  justify-content: center;
 }
 
 .right_side svg {
@@ -92,16 +149,57 @@ main {
   fill: transparent;
   transition: fill 1s ease-in;
 }
-
-.canvas {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  z-index: -2;
+.left_side {
+  padding-top: 5vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: "Poppins", sans-serif;
 }
-@media (max-width: 1100px) {
-  main {
+
+h1 {
+  font-family: "Lobster", cursive;
+  text-align: center;
+  font-size: clamp(2rem, 4vw, 4vw);
+}
+p {
+  padding-left: 10vw;
+  padding-right: 10vw;
+  line-height: 2rem;
+  letter-spacing: 0.1rem;
+  text-align: center;
+}
+
+.links {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1rem 10vw;
+  gap: 1rem;
+  background-color: beige;
+  font-size: clamp(2rem, 3vw, 4vw);
+}
+
+@media (hover: hover) {
+  .links > .github:hover {
+    color: #171515;
+  }
+  .links > .linkedin:hover {
+    color: #0072b1;
+  }
+  .links > .instagram:hover {
+    color: #bc2a8d;
+  }
+  .links > .twitter:hover {
+    color: #00acee;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --tile-height: 30px;
+    --tile-font-size: 20px;
+  }
+  .about_me {
     grid-template-columns: 1fr;
   }
   .left_side {
@@ -112,5 +210,12 @@ main {
     height: 50vh;
     grid-column: 1 / 2;
     grid-row: 1/2;
+  }
+  .right_side svg {
+    height: 100%;
+    width: 100%;
+  }
+  .line1 {
+    transform: translateX(-25vw);
   }
 }
