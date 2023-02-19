@@ -3,7 +3,7 @@ let paths = document.querySelectorAll("path");
 let svg = document.querySelector("svg");
 let drawAudio = new Audio("audio/draw.mp3");
 let didUserClick = false;
-drawAudio.volume = 0.5;
+drawAudio.volume = 0.55;
 
 const rect = svg.getBoundingClientRect();
 const animateSvg = () => {
