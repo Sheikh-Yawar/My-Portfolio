@@ -1,9 +1,11 @@
 //For svg animation
 let paths = document.querySelectorAll("path");
 let svg = document.querySelector("svg");
+let drawAudio = new Audio("audio/draw.mp3");
+let didUserClick = false;
+drawAudio.volume = 0.7;
 
 const rect = svg.getBoundingClientRect();
-
 const animateSvg = () => {
   let scrollTop =
     window.pageYOffset ||
@@ -12,6 +14,9 @@ const animateSvg = () => {
 
   //Knowing when svg is scrolled into view
   if (scrollTop >= (rect.bottom - rect.top) / 2 - 50) {
+    if (didUserClick) {
+      drawAudio.play();
+    }
     const intervalId = setInterval(fillSvgPaths, 50);
     let drawPercent = 0;
     function fillSvgPaths() {
@@ -161,6 +166,7 @@ for (let i = 0; i < numParticles; i++) {
 }
 
 window.addEventListener("click", (e) => {
+  didUserClick = true;
   let box = Bodies.polygon(
     e.clientX,
     e.clientY,
