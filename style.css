@@ -178,7 +178,10 @@ p {
   background-color: beige;
   font-size: clamp(2rem, 3vw, 4vw);
 }
-a, a:visited, a:hover, a:active {
+a,
+a:visited,
+a:hover,
+a:active {
   color: inherit;
 }
 
@@ -193,6 +196,9 @@ a, a:visited, a:hover, a:active {
     color: #bc2a8d;
   }
   .links > .twitter:hover {
+    color: #00acee;
+  }
+  .links > .mail:hover {
     color: #00acee;
   }
 }
