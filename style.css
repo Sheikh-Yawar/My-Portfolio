@@ -116,12 +116,14 @@ html {
   animation: move 8s ease-in-out infinite alternate;
 }
 @keyframes move {
-  50% {
+  25% {
     transform: translateY(calc(-1 * var(--tile-height)));
   }
-
-  100% {
+  50% {
     transform: translateY(calc(-2 * var(--tile-height)));
+  }
+  100% {
+    transform: translateY(calc(-3 * var(--tile-height)));
   }
 }
 .i-title-item {
@@ -163,11 +165,11 @@ h1 {
   font-size: clamp(2rem, 4vw, 4vw);
 }
 p {
-  padding-left: 10vw;
-  padding-right: 10vw;
+  padding-left: 7vw;
+  padding-right: 7vw;
   line-height: 2rem;
   letter-spacing: 0.1rem;
-  text-align: center;
+  text-align: justify;
 }
 
 .links {
